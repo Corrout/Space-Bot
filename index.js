@@ -4,7 +4,21 @@ const client = new Discord.Client();
 
 client.once('ready', () => {
     console.log('Ready!');
+    
+    
+    
 })
+
+client.on("ready", () =>{
+    console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setPresence({
+        status: "online",  
+        game: {
+            name: "+help",  
+            type: "watching" 
+        }
+    });
+ });
 
 client.on('message', message => {
     if(message.content.startsWith(`${prefix}wooloo`)) {
@@ -16,19 +30,19 @@ client.on('message', message => {
         if(message.content.startsWith(`${prefix}hi`)) {
     
             let member = message.mentions.members.first()
-            message.channel.send(`Hello :slight_smile:`) 
+            message.channel.send("<:corrin_wave:605093017451364380>");
         }})
     
 client.on('message', message => {
     
-        if (message.content === `${prefix}server`) {
-             message.channel.send(`This server's name is: ${message.guild.name}`);
+        if (message.content === `${prefix}membercount`) {
+             message.channel.send(`The amount of people on this server is: ${message.guild.memberCount}`);
         }})
            
 client.on('message', message => {
 
                 if (message.content === `${prefix}help`) {
-                    message.channel.send(`List Of Commands: +wooloo, +hi, +server, +google, +mydiscordserver, +info, +reddit, +rickroll, +corrinhi `);
+                    message.channel.send(`List Of Commands: +wooloo, +hi, +membercount, +google, +mydiscordserver, +info, +rickroll, +corrinhi `);
                 }})
 
 client.on('message', message => {
@@ -46,14 +60,13 @@ client.on('message', message => {
 client.on('message', message => {
 
                 if (message.content === `${prefix}info`) {
-                    message.channel.send(`Spacebot is a bot for server that Space (Corrin) likes. This Bot Was Made By SpaceMars8 (Corrin #9659).`)
+                    message.channel.send(`Spacebot is a bot for servers that Space (Corrin) likes. This Bot Was Made By SpaceMars8 (Corrin #9659).`)
                 }}) 
     
 
 client.on('message', message => {
-
-                if (message.content === `${prefix}reddit`) {
-                    message.channel.send(`Reddit: https://reddit.com/ Follow The Creator: https://www.reddit.com/user/SpaceMars8 `)
+     if (message.content === `${prefix}test`) {
+                    message.channel.send('thanks',message.guild.acknowledge)
                 }}) 
     
 client.on('message', message => {
@@ -66,6 +79,8 @@ client.on('message', message => {
                  if (message.content === `${prefix}corrinhi`) {
                      message.channel.send(`https://media.discordapp.net/attachments/605095278130888811/605095330626928650/dragon_high_five_by_raydango_dd5mlly.png?width=919&height=670  `)
                     }}) 
-    
-                
+        
+
+                    
+                    
 client.login(token)
